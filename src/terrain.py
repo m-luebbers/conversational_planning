@@ -117,7 +117,7 @@ class Terrain():
         colors[..., 0] = 255*positiveReward
         colors[..., 1] = 255*noReward
         colors[..., 2] = 255*negativeReward
-        cv.imwrite("abc.png",colors)
+        cv.imwrite("../img/abc.png",colors)
         return np.array(colors, dtype='uint8')
 
     def setup(self):
