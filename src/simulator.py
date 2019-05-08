@@ -16,6 +16,21 @@ from a_star_with_costmap import a_star_planning;
 from simulator3d import GLWidget
 from rewardtraining import InitTrain
 
+class Simulator():
+    def __init__(self, parent):
+        self.widget = GLWidget(None)
+        self.widget.setMouseTracking(true)
+        self.widget.resize(640, 480)
+        self.widget.show()
+        self.widget.maskCreated.connect(self.sendMask)
+        self.learningModel = InitTrain()
+        self.learningModel.initialtrain()
+    def sendMask(self, mask):
+        learned_reward = self.learningModel.phasetrain(mask, 4)
+        print(learned_reward)
+        #self.widget.setRoverPosition(50,80)
+        # discrete_matshow(learned_reward, filename='maskedrewards.png', vmin=learned_reward.min(),vmax=learned_reward.max())
+
 
 class simulation(QDialog):
     def __init__(self):
