@@ -77,14 +77,14 @@ class simulation(QDialog):
 
         self.xwidth = round(self.maxx - self.minx)
 
-        self.ry = np.loadtxt('rx.txt')
-        self.rx = np.loadtxt('ry.txt')
+        self.ry = np.loadtxt('./paths/new_paths/rx.txt')
+        self.rx = np.loadtxt('./paths/new_paths/ry.txt')
 
-        self.ryhalf = np.loadtxt('rx_orig_firsthalf')
-        self.rxhalf = np.loadtxt('ry_orig_firsthalf')
+        self.ryhalf = np.loadtxt('./paths/new_paths/rx_orig_firsthalf.txt')
+        self.rxhalf = np.loadtxt('./paths/new_paths/ry_orig_firsthalf.txt')
 
-        self.rystarhalf = np.loadtxt('rx_stars_secondhalf')
-        self.rxstarhalf = np.loadtxt('ry_stars_secondhalf')
+        self.rystarhalf = np.loadtxt('./paths/new_paths/rx_stars_secondhalf.txt')
+        self.rxstarhalf = np.loadtxt('./paths/new_paths/ry_stars_secondhalf.txt')
 
         self.i = 0
         self.j = 0
