@@ -2,3 +2,7 @@
 *.pyc
 *.pyo
 src/venv
+img/abc.png
+img/actual_path.png
+img/initial_path.png
+img/heatmap.png
