@@ -54,7 +54,7 @@ class simulation(QDialog):
         self.sketchLabels = {};
         self.sketchDensity = 3; #radius in pixels of drawn sketch points
 
-        img = cv2.imread('../img/atacamaTexture1001.png')
+        img = cv2.imread('../img/mars/1001/Mars_Color_Viz_1001.png')
         self.rewardMatrix = np.zeros((img.shape[0], img.shape[1]))
 
         #A* Params
@@ -115,7 +115,7 @@ class simulation(QDialog):
     def graphics(self):
 
         self.scene1 = QGraphicsScene()
-        self.scene1.addPixmap(QPixmap('../img/atacamaTexture500'))
+        self.scene1.addPixmap(QPixmap('../img/mars/Mars_Color_Viz_500.png'))
         self.graphicsView.setScene(self.scene1)
 
         #makeTruePlane(self)
@@ -143,7 +143,7 @@ class simulation(QDialog):
 
     def generate_heatmap_clicked(self):
         print("<<Generating Heatmap>>")
-        self.rewardMatrix = image2reward('../img/atacamaTexture1001.png',False)
+        self.rewardMatrix = image2reward('../img/mars/1001/Mars_Color_Viz_1001.png',False)
         print("<<Heatmap Generated>>")
         #print("<<Loading Heatmap>>")
         #scene_2.addPixmap(QPixmap(self.rewardMatrix))
@@ -315,7 +315,7 @@ def imageMouseRelease(QMouseEvent,wind):
 
 def makeTruePlane(wind):
 
-	wind.trueImage = QPixmap('../img/atacamaTexture1001.png');
+	wind.trueImage = QPixmap('../img/mars/1001/Mars_Color_Viz_1001.png');
 	wind.imgWidth = wind.trueImage.size().width();
 	wind.imgHeight = wind.trueImage.size().height();
 
