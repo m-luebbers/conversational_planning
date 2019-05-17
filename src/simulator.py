@@ -53,6 +53,7 @@ class simulation(QDialog):
         self.layer_drop_down.addItem('Shaded Relief')
         self.layer_drop_down.addItem('Daytime IR')
         self.layer_drop_down.addItem('Nighttime IR')
+        self.layer_drop_down.activated.connect(self.layer_select)
 
         #Sketching Params
         self.sketchListen=False;
@@ -125,7 +126,7 @@ class simulation(QDialog):
     def graphics(self):
 
         self.scene1 = QGraphicsScene()
-        self.scene1.addPixmap(QPixmap('../img/mars/Mars_Color_Viz_500.png'))
+        self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Color_Viz_501.png'))
         self.graphicsView.setScene(self.scene1)
 
         #makeTruePlane(self)
@@ -159,6 +160,30 @@ class simulation(QDialog):
         #scene_2.addPixmap(QPixmap(self.rewardMatrix))
         #self.graphicsView_2.setScene(scene_2)
         #print("<<Loading Heatmap complete>>")
+
+    def layer_select(self):
+        #find out which layer the user wants
+        selection = self.layer_drop_down.currentText()
+        #change the image to match
+        if(selection == 'Visible Truecolor'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Color_Viz_501.png'))
+        elif(selection == 'Visible Greyscale'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_BW_Viz_501.png'))
+        elif(selection == 'Thermal Emissivity'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Thermal_Emissivity_501.png'))
+        elif(selection == 'Albedo'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Albedo_501.png'))
+        elif(selection == 'MGS MOC'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_MGS_MOC_501.png'))
+        elif(selection == 'Topography'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Topo_501.png'))
+        elif(selection == 'Shaded Relief'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Terrain_Shaded_501.png'))
+        elif(selection == 'Daytime IR'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Day_IR_501.png'))
+        elif(selection == 'Nighttime IR'):
+            self.scene1.addPixmap(QPixmap('../img/mars/501/Mars_Night_IR_501.png'))
+
 
     def generate_path_clicked(self):
 

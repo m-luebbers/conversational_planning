@@ -296,7 +296,7 @@ def main():
     """
     # initialization of image and rewardMatrix
     # 1001 * 1001 pixels
-    image_file = '../img/mars/Mars_Color_Viz_500.png'
+    image_file = '../img/mars/501/Mars_Color_Viz_501.png'
     img = cv2.imread(image_file)
     rewardMatrix = np.zeros((img.shape[0], img.shape[1]))
 
