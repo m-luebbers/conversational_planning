@@ -296,7 +296,7 @@ def main():
     """
     # initialization of image and rewardMatrix
     # 1001 * 1001 pixels
-    image_file = 'atacamaTexture1001.png'
+    image_file = '../img/mars/Mars_Color_Viz_500.png'
     img = cv2.imread(image_file)
     rewardMatrix = np.zeros((img.shape[0], img.shape[1]))
 
@@ -349,20 +349,20 @@ def main():
     """
     # initialization of the 2D grid environment
     # start coordinate
-    sx = 50.0       # [m]
-    sy = 50.0       # [m]
+    sx = 25.0       # [m] (prev. 50)
+    sy = 25.0       # [m] (prev. 50)
     # goal coordinate
-    gx = 650.0      # [m]
-    gy = 800.0     # [m]
+    gx = 325.0      # [m] (prev. 650)
+    gy = 400.0     # [m] (prev. 800)
     # grid property
     greso = 1.0     # [m]
     # robot size (assume the robot size is 2*2 meters)
     rs = 1.0        # [m]
     # size of the whole environment (values are calculated based on image pixels)
     minx = 0.0      # [m]
-    maxx = 1001.0   # [m]
+    maxx = 500.0   # [m] (prev. 1001)
     miny = 0.0      # [m]
-    maxy = 1001.0   # [m]
+    maxy = 500.0   # [m] (prev. 1001)
 
     xwidth = round(maxx - minx)
     #ywidth = round(maxy - miny)
@@ -389,7 +389,7 @@ def main():
     ax1.plot(sx, sy, c='darkgreen', marker='x')
     ax1.plot(gx, gy, c='darkgreen', marker='o')
     ax1.plot(rx, ry, "-k", linewidth=3)
-    ax1.text(600, 950, "total reward: " + str(int(accumReward)), size = 15, weight="bold", color = "w" )
+    #ax1.text(600, 950, "total reward: " + str(int(accumReward)), size = 15, weight="bold", color = "w" )
 
 
     ax2 = fig.add_subplot(122)
@@ -409,7 +409,8 @@ def main():
     ax2.plot(rx, ry, "-k", linewidth=3)
 #    ax2.plot(highreward_x, highreward_y, c='orange', marker='*', markersize=15)
 
-    plt.savefig('a*_path_plan_based_on_reward.jpg')
+    plt.savefig('../img/a*result_mars2.png')
+    print("total reward: " + str(int(accumReward)))
 
 if __name__ == '__main__':
     main()

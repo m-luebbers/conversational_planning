@@ -44,6 +44,16 @@ class simulation(QDialog):
         self.button_drive.clicked.connect(self.drive_clicked)
         self.button_send_mask.clicked.connect(self.send_mask_clicked)
 
+        self.layer_drop_down.addItem('Visible Truecolor')
+        self.layer_drop_down.addItem('Visible Greyscale')
+        self.layer_drop_down.addItem('Thermal Emissivity')
+        self.layer_drop_down.addItem('Albedo')
+        self.layer_drop_down.addItem('MGS MOC')
+        self.layer_drop_down.addItem('Topography')
+        self.layer_drop_down.addItem('Shaded Relief')
+        self.layer_drop_down.addItem('Daytime IR')
+        self.layer_drop_down.addItem('Nighttime IR')
+
         #Sketching Params
         self.sketchListen=False;
         self.sketchingInProgress = False;
